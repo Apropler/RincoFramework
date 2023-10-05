@@ -6,13 +6,13 @@ var _signal_bus_dict = {}
 var _container = IOCContainer.new()
 
 ## 容器操作
-func register_component(component_class, component):
+func register_component(key, component):
 	if component.has_method("set_architecture"):
 		component.set_architecture(self)
-	_container.register(component_class, component)
+	_container.register(key, component)
 
-func get_component(component_class):
-	return _container.get_instance(component_class)
+func get_component(key):
+	return _container.get_instance(key)
 
 
 ## 命令操作
