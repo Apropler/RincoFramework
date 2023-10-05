@@ -1,14 +1,26 @@
 extends Node
+class_name BaseController
 
+var _architecture
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _set_architecture(architecture):
+	_architecture = architecture
 
+func _get_architecture():
+	if not _architecture:
+		push_error("未设置架构, 需要调用方法: _set_architecture(architecture).")
+	return _architecture
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _send_command(command: BaseCommand, param={}):
+	var archi = _get_architecture()
+	if archi: archi.send_command(command, param)
+	
+func _get_component(component_class):
+	var archi = _get_architecture()
+	if archi: 
+		return archi.get_component(component_class)
+	return null
 
-func _register_signal(signal_name, function: Callable):
-	pass
+func _connect_signal(bus_name, signal_class, function: Callable):
+	var archi = _get_architecture()
+	if archi: archi.connect_signal(bus_name, signal_class, function)

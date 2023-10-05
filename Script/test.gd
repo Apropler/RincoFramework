@@ -1,9 +1,12 @@
 extends BaseTest
 class_name Test
+var ioc = IOCContainer.new()
+
+var score = 0: 
+	get:
+		return 114514
+	set(value):
+		score = value
 
 
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _ready(): print(score)

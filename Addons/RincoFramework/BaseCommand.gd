@@ -1,14 +1,18 @@
-extends Node
+class_name BaseCommand
 
+var _architecture
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func execute(data):
+	print(data)
 
+func set_architecture(architecture):
+	_architecture = architecture
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _send_command(command: BaseCommand, param={}):
+	_architecture.send_command(command, param)
+	
+func _get_component(component_class):
+	return _architecture.get_component(component_class)
 
-func _emit_signal(signal_name, data={}):
-	pass
+func _emit_signal(bus_name, signal_class, data: Dictionary):
+	_architecture.emit_signal_with_data(bus_name, signal_class, data)

@@ -1,11 +1,12 @@
-extends Node
+class_name BaseModel
 
+var _architecture: BaseArchitecture
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func set_architecture(architecture):
+	_architecture = architecture
 
+func _get_component(component_class):
+	return _architecture.get_component(component_class)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _emit_signal(bus_name, signal_class, data: Dictionary):
+	_architecture.emit_signal_with_data(bus_name, signal_class, data)
