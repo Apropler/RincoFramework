@@ -14,7 +14,7 @@ func _init():
 Architecture 类负责进行模块管理  
 建议将 Architecture 类设置为AutoLoad
 
-可以在 _init() 函数中注册主线和组件  
+可以在 _init() 函数中注册信号总线和组件  
 被注册的脚本可以在其他位置被获取
 
 #### 注册信号主线 [Signal](Docs/Signal.md)
