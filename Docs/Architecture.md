@@ -17,9 +17,9 @@ Architecture 类负责进行模块管理
 可以在 _init() 函数中注册信号总线和组件  
 被注册的脚本可以在其他位置被获取
 
-#### 注册信号主线 [Signal](Docs/Signal.md)
-bus_name: 自定义主线名  
-bus_class: 主线类名
+#### 注册信号总线 [Signal](Docs/Signal.md)
+bus_name: 自定义总线名  
+bus_class: 总线类名
 
 ```python
 func _register_signal_bus(bus_name, bus_class)
