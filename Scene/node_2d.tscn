@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://f62v6qf6fke2"]
+[gd_scene load_steps=2 format=3 uid="uid://bvj72pen6je7g"]
 
-[ext_resource type="Script" path="res://Script/Controller/sample_controller.gd" id="1_ynbgr"]
+[ext_resource type="Script" path="res://Script/Controller/counter_app_controller.gd" id="1_m5mke"]
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_ynbgr")
+position = Vector2(0, -1)
+script = ExtResource("1_m5mke")

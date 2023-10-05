@@ -9,6 +9,7 @@ var _container = IOCContainer.new()
 func register_component(key, component):
 	if component.has_method("set_architecture"):
 		component.set_architecture(self)
+	component.init()
 	_container.register(key, component)
 
 func get_component(key):
