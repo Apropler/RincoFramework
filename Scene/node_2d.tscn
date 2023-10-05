@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://f62v6qf6fke2"]
+
+[ext_resource type="Script" path="res://Script/SampleArchivement.gd" id="1_xewk7"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_xewk7")
