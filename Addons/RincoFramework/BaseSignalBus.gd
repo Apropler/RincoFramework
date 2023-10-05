@@ -1,12 +1,11 @@
 extends Node
 class_name BaseSignalBus
 
-var signal_classes = [SampleSignal]	# 保存定义好的信号类BaseSignal
+var signal_classes = []	# 保存定义好的信号类BaseSignal
 var signal_nodes = {}
 
 # 实例化信号类
-
-func init():
+func init_bus():
 	for s in signal_classes:
 		var node = s.new()
 		add_child(node)

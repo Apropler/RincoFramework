@@ -25,7 +25,7 @@ func send_command(command: BaseCommand, param={}):
 # 注册总线
 func _register_signal_bus(bus_name, bus_class):
 	var new_bus = bus_class.new()
-	new_bus.init()
+	new_bus.init_bus()
 	add_child(new_bus)
 	_signal_bus_dict[bus_name] = new_bus
 
