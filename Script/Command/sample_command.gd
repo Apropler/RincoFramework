@@ -1,5 +1,5 @@
 extends BaseCommand
-class_name TestCommand
+class_name SampleCommand
 
 func execute(data):
 	var signal_class = data.signal_class

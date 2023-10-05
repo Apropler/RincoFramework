@@ -4,9 +4,9 @@ extends BaseController
 func _ready():
 	_set_architecture(SampleArchitecture)
 	
-	_connect_signal("Main", TestSignal, test)
-	_send_command(TestCommand.new(),{"signal_class": TestSignal})
-	var test_model = _get_component(TestModel)
+	_connect_signal("Main", SampleSignal, test)
+	_send_command(SampleCommand.new(),{"signal_class": SampleSignal})
+	var test_model = _get_component(SampleModel)
 	test_model.score = 10
 	test_model.score = 20
 	test_model.score = 30

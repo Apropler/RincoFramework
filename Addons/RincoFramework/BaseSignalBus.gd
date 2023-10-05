@@ -1,7 +1,7 @@
 extends Node
 class_name BaseSignalBus
 
-var signal_classes = [TestSignal]	# 保存定义好的信号类BaseSignal
+var signal_classes = [SampleSignal]	# 保存定义好的信号类BaseSignal
 var signal_nodes = {}
 
 # 实例化信号类
