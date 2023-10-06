@@ -2,13 +2,13 @@ class_name BaseCommand
 
 var _architecture
 
-var _get_component_handle:
+var get_component_handle:
 	get: return GetComponentHandle.new(_get_architecture())
 
-var _send_command_handle:
+var send_command_handle:
 	get: return SendCommandHandle.new(_get_architecture())
 
-var _emit_signal_handle:
+var emit_signal_handle:
 	get: return EmitSignalHandle.new(_get_architecture())
 
 func execute(data):

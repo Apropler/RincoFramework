@@ -2,16 +2,16 @@ class_name BaseSystem
 
 var _architecture: BaseArchitecture
 
-var _get_component_handle:
+var get_component_handle:
 	get: return GetComponentHandle.new(_get_architecture())
 
-var _connect_signal_handle:
+var connect_signal_handle:
 	get: return ConnectSignalHandle.new(_get_architecture())
 	
-var _emit_signal_handle:
+var emit_signal_handle:
 	get: return EmitSignalHandle.new(_get_architecture())
 
-func init():
+func _init_component():
 	pass
 	
 func set_architecture(architecture):

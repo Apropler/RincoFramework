@@ -9,7 +9,7 @@ var _container = IOCContainer.new()
 func register_component(key, component):
 	if component.has_method("set_architecture"):
 		component.set_architecture(self)
-	component.init()
+	component._init_component()
 	_container.register(key, component)
 
 func get_component(key):
@@ -24,15 +24,11 @@ func send_command(command: BaseCommand, param={}):
 
 ## 信号操作
 # 注册总线
-func _register_signal_bus(bus_name, bus_class):
+func register_signal_bus(bus_name, bus_class):
 	var new_bus = bus_class.new()
 	new_bus.init_bus()
 	add_child(new_bus)
 	_signal_bus_dict[bus_name] = new_bus
-
-# 获取总线
-func _get_signal_bus(bus_name: String):
-	return _signal_bus_dict[bus_name]
 
 # 连接信号
 func connect_signal(bus_name, signal_class, function: Callable):
@@ -49,4 +45,7 @@ func emit_signal_with_data(bus_name, signal_class, data: Dictionary):
 	var bus = _get_signal_bus(bus_name)
 	bus.emit_signal_with_data(signal_class, data)
 
+# 获取总线
+func _get_signal_bus(bus_name: String):
+	return _signal_bus_dict[bus_name]
 

@@ -1,4 +1,4 @@
 class_name BaseUtility
 
-func init():
+func _init_component():
 	pass

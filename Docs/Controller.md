@@ -3,7 +3,7 @@
 继承 BaseController 类
 #### 初始化
 在使用框架功能前需要先执行函数指定 architecture  
-architecture 参数传入 BaseArchitecture 子类实例 [Architecture](Docs/Architecture.md)  
+architecture 参数传入 BaseArchitecture 子类实例 [Architecture](Architecture.md)  
 ```
 _set_architecture(architecture)
 ```
@@ -18,4 +18,4 @@ _set_architecture(SampleArchitecture)
 ```
 #### 功能
 Controller 类中可以连接信号、发送命令、获取组件  
-见 [Function](Docs/Function.md)
+见 [Handle](Handle.md)

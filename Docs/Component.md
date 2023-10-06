@@ -2,8 +2,8 @@
 *在 RincoFramework 中，Model、System、Utility 都被视为 Component* 
 
 #### Component
-Component 可以获取其他组件 Component、发送命令 [Command](Docs/Command.md)、连接和发送信号 [Signal](Docs/Signal.md)  
-见  [Function](Docs/Function.md)  
+Component 可以获取其他组件 Component、发送命令 [Command](Command.md)、连接和发送信号 [Signal](Signal.md)  
+见  [Handle](Handle.md)  
 
 对这些功能进行限制后得到 Model、System、Utility
 - Model 组件可以获取其他组件和发送信号，一般在其中定义数据，并在数据更改时发送信号
@@ -12,7 +12,28 @@ Component 可以获取其他组件 Component、发送命令 [Command](Docs/Comma
 
 
 
-#### 自定义 Component
-参考 BaseModel、BaseSystem、BaseUtility 的代码，对 BaseComponent 脚本进行删减即可得到自定义 Component 基类  
-实际上任何一个脚本都可以当作 Component 被注册进 Architecture 中，并通过同样的方式进行获取  
-~~比如 BaseUtility 类就是一个空脚本~~
+#### 修改 Component
+给 Component 添加功能只需要在子类中定义对应 handle 变量
+```python
+var get_component_handle:
+	get: return GetComponentHandle.new(_get_architecture())
+
+var send_command_handle:
+	get: return SendCommandHandle.new(_get_architecture())
+
+var connect_signal_handle:
+	get: return ConnectSignalHandle.new(_get_architecture())
+	
+var emit_signal_handle:
+	get: return EmitSignalHandle.new(_get_architecture())
+```
+例如，创建一个可以发送命令的 Model
+```python
+extends BaseModel
+class_name SendCommandModel
+
+var send_command_handle:
+	get: return SendCommandHandle.new(_get_architecture())
+```
+这样就可以像其他组件一样调用 send_command_handle 来发送命令了  
+~~能不能来个接口啊~~

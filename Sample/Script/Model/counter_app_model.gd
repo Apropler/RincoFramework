@@ -11,6 +11,6 @@ var count = 0:
 			count = value
 			storage.save("count", count)
 
-func init():
-	storage = _get_component_handle.execute("Storage")
+func _init_component():
+	storage = get_component_handle.execute("Storage")
 	count = storage.load("count", 0)
