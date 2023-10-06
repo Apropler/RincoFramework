@@ -195,7 +195,7 @@ func execute(data):
 将数字增减命令绑定到加减两个按钮上，按下按钮时发送对应命令操作数字  
 
 需要重写 _get_architecture() 方法指定 Architecture  
-由于 CounterApp 架构类被设置为了 AutoLoad 单例，因此可以直接通过类名拿到
+由于 CounterApp 架构类被设置为了 AutoLoad 单例，因此可以直接通过设置的名称拿到
 ```python
 extends BaseController
 
