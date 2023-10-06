@@ -26,7 +26,7 @@ func _init():
 #### 信号注册 [Architecture](Architecture.md)
 在 Architecture 类中对信号总线进行注册  
 信号总线被注册后会被添加为 Architecture 实例的子节点  
-而后信号总线进行初始化，实例化包含的信号类，并将其添加为自己的子节点
+而后信号总线进行初始化，实例化挂载的信号类，供其他脚本进行连接与发送
 ```
 extends BaseArchitecture
 
@@ -56,7 +56,7 @@ var score = 0:
 		emit_signal_handle.execute("Main", SampleSignal, {"hello_rinco": score})
 
 ```  
-当 score 发生变化时，发送 SampleSignal 信号，携带数据 score  
+当 score 发生变化时，发送 SampleSignal 信号，携带数据 hello_rinco，值为 score  
 
 <br>
 
