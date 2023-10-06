@@ -14,4 +14,8 @@
 - [Utility](Docs/Component.md)
 
 另外，该框架使用了 Godot 引擎的信号机制代替了 QF 的 Event
-- [Signal](Docs/Signal.md)
+- [Signal](Docs/Signal.md)  
+
+<br>
+
+[下载](https://github.com/Apropler/RincoFramework/releases/tag/rinco)解压后放在 res 路径下即可使用
