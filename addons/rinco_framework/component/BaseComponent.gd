@@ -1,12 +1,6 @@
-class_name BaseModel
+class_name BaseComponent
 
 var _architecture: BaseArchitecture
-
-var get_component_handle:
-	get: return GetComponentHandle.new(_get_architecture())
-	
-var emit_signal_handle:
-	get: return EmitSignalHandle.new(_get_architecture())
 
 func _init_component():
 	pass

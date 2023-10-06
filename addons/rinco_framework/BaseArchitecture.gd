@@ -3,18 +3,28 @@ class_name BaseArchitecture
 
 var _signal_bus_dict = {}
 
-var _container = IOCContainer.new()
-
-## 容器操作
+var _components = IOCContainer.new()
+var _utilitys = IOCContainer.new()
+		
+		
+## 组件操作
+# 注册组件
 func register_component(key, component):
-	if component.has_method("set_architecture"):
-		component.set_architecture(self)
-	component._init_component()
-	_container.register(key, component)
+	component.set_architecture(self)
+	_components.register(key, component)
 
+# 获取组件
 func get_component(key):
-	return _container.get_instance(key)
+	return _components.get_instance(key)
 
+# 初始化组件
+func _notification(what):
+	if what == NOTIFICATION_READY:
+		
+		var all_component = _components.get_all_instance()
+		for c in all_component:
+			c._init_component()
+			
 
 ## 命令操作
 func send_command(command: BaseCommand, param={}):
@@ -49,3 +59,10 @@ func emit_signal_with_data(bus_name, signal_class, data: Dictionary):
 func _get_signal_bus(bus_name: String):
 	return _signal_bus_dict[bus_name]
 
+
+## 工具操作
+func register_utility(key, component):
+	_utilitys.register(key, component)
+
+func get_utility(key):
+	return _utilitys.get_instance(key)

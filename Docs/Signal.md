@@ -1,10 +1,9 @@
 # Signal
 RincoFramework 提供了 BaseSignalBus 脚本和 BaseSignal 脚本对信号进行管理
 
-**信号** 需要继承 BaseSignal 类，将单个信号封装成节点 Node，目的是为了给信号封装一些属性，作为固定参数进行发送
+**信号** 需要继承 BaseSignal 类，将单个信号封装成脚本，目的是为了给信号添加一些属性，作为固定参数进行传递
 
-**信号总线** 需要继承 BaseSignalBus 类，类似信号的分组，在Architecture中可以注册多个信号总线，每个总线又分别可以设置多个信号 ~~我也不知道有没有用，反正先写了再说~~  
-可以在总线类中进行扩展对信号进行批量处理
+**信号总线** 需要继承 BaseSignalBus 类，信号的挂载节点，在Architecture中可以注册多个信号总线，每个总线又分别可以挂载多个信号
 
 #### 信号创建
 信号类需要在 _init() 方法中为数组 must_have_param 赋值，表示该信号必须传递的参数
@@ -43,7 +42,7 @@ signal_class: 信号类名
 data: 传递的参数  字典
 
 ```python
-func _emit_signal(bus_name, signal_class, data: Dictionary)
+emit_signal_handle.execute(bus_name, signal_class, data: Dictionary)
 ```
 ```python
 extends BaseModel
@@ -54,7 +53,7 @@ var score = 0:
 		return score
 	set(value):
 		score = value
-		_emit_signal("Main", SampleSignal, {"hello_rinco": score})
+		emit_signal_handle.execute("Main", SampleSignal, {"hello_rinco": score})
 
 ```  
 当 score 发生变化时，发送 SampleSignal 信号，携带数据 score  
@@ -67,15 +66,13 @@ bus_name: 总线名
 signal_class: 信号类名  
 function: 绑定的函数名
 ```python
-func _connect_signal(bus_name, signal_class, function: Callable)
+connect_signal_handle.execute(bus_name, signal_class, function: Callable)
 ```
 ```python
 extends BaseController
 
 func _ready():
-	_set_architecture(SampleArchitecture)
-	
-	_connect_signal("Main", SampleSignal, test)
+	connect_signal_handle.execute("Main", SampleSignal, test)
 
 # 传入的data为字典
 # 绑定的函数必须且只能含有一个参数接收信息，尽管有时候传递的参数为空字典

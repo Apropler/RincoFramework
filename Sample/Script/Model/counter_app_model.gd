@@ -9,8 +9,8 @@ var count = 0:
 	set(value):
 		if count != value:
 			count = value
-			storage.save("count", count)
+			storage.save_data("count", count)
 
 func _init_component():
-	storage = get_component_handle.execute("Storage")
-	count = storage.load("count", 0)
+	storage = get_utility_handle.execute("Storage")
+	count = storage.load_data("count", 0)

@@ -12,3 +12,5 @@ func get_instance(key):
 		return null
 	return _instance_dict[key]
 	
+func get_all_instance():
+	return _instance_dict.values()
