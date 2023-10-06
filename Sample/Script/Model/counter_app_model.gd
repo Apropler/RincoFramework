@@ -10,6 +10,7 @@ var count = 0:
 		if count != value:
 			count = value
 			storage.save_data("count", count)
+			emit_signal_handle.execute("Main", CountChangeSignal)
 
 func _init_component():
 	storage = get_utility_handle.execute("Storage")
