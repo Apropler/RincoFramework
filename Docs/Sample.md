@@ -203,7 +203,7 @@ extends BaseController
 var model = get_component_handle.execute("CounterAppModel")
 
 func _ready():
-	var a: Callable = execute
+
 	connect_signal_handle.execute("Main", CountChangeSignal, update_view)
 	
 	add_button.pressed.connect(
