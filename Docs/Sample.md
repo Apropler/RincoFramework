@@ -13,16 +13,16 @@ Architecture 架构脚本用于管理模块，继承 BaseArchitecture 类
 extends BaseArchitecture
 
 func _init():
-    # 信号总线
-	register_signal_bus("Main", MainSignalBus)
+    	# 信号总线
+   	register_signal_bus("Main", MainSignalBus)
 	
-    # 工具
+  	# 工具
 	register_utility("Storage", Storage.new())
 	
-    ## 组件
-    # 系统
+	## 组件
+	# 系统
 	register_component("AchievementSystem", AchievementSystem.new())
-    # 模型
+	# 模型
 	register_component("CounterAppModel", CounterAppModel.new())
 	
 ```
@@ -54,30 +54,6 @@ func load_data(key: String, default_value=0):
 
 ```
 
-## [Model](Component.md)
-定义模型类，继承 BaseModel 类  
-模型类用于保存需要供多个脚本使用的数据，此处定义了示例项目中被按钮操控的数字  
-在 _init_component() 方法中对数据进行初始化  
-其中调用了注册好的存储工具类，执行加载方法，获取上次记录的数字  
-在数字发送变化时执行保存方法，将新数字进行保存
-```python
-extends BaseModel
-class_name CounterAppModel
-
-var storage
-
-var count = 0:
-	get:
-		return count
-	set(value):
-		if count != value:
-			count = value
-			storage.save_data("count", count)
-
-func _init_component():
-	storage = get_utility_handle.execute("Storage")
-	count = storage.load_data("count", 0)
-```
 ## [SignalBus](Signal.md)
 信号总线用于统一管理信号，在各处进行连接的信号都会被挂载在总线节点上  
 
@@ -110,6 +86,34 @@ func _init():
 	signal_classes = [CountChangeSignal]
 ```
 在 Architecture 中对总线进行注册后，可以在其他脚本中对信号进行连接和发送
+
+## [Model](Component.md)
+定义模型类，继承 BaseModel 类  
+模型类用于保存需要供多个脚本使用的数据，此处定义了示例项目中被按钮操控的数字  
+在 _init_component() 方法中对数据进行初始化  
+其中调用了注册好的存储工具类，执行加载方法，获取上次记录的数字  
+在数字发送变化时执行保存方法，将新数字进行保存，并发送数字改变信号
+```python
+extends BaseModel
+class_name CounterAppModel
+
+var storage
+
+var count = 0:
+	get:
+		return count
+	set(value):
+		if count != value:
+			count = value
+			storage.save_data("count", count)
+			emit_signal_handle.execute("Main", CountChangeSignal)
+
+func _init_component():
+	storage = get_utility_handle.execute("Storage")
+	count = storage.load_data("count", 0)
+```
+
+
 ## [System](Component.md)
 定义系统类，继承 BaseSystem  
 系统类中一般实现一些独立的模块功能  
@@ -172,8 +176,7 @@ func save_achievement(achievement) -> bool:
 定义数字增加命令和数字减少命令，继承 BaseCommand 类  
 此处介绍数字增加命令  
 当命令被调用时会执行 execute() 方法  
-获取到模型 CounterAppModel 并将数字加一  
-随后发送信号 CountChangeSignal 通知其他脚本数字被修改  
+获取到模型 CounterAppModel 并将数字加一   
 数字减少命令与其类似
 ```python
 extends BaseCommand
@@ -181,18 +184,18 @@ class_name IncreaseCountCommand
 
 func execute(data):
     get_component_handle.execute("CounterAppModel").count += 1
-    emit_signal_handle.execute("Main", CountChangeSignal)
 ```
 
 ## [Controller](Controller.md)
 控制类处理游戏逻辑  
+需要挂载在场景中的节点上  
 定义数字控制器，继承 BaseController 类  
 该脚本中获取到模型 CountChangeSignal  
 定义方法 update_view() 并连接到 CountChangeSignal 信号上，当数字改变时从模型中拿到最新数据来更新画面上的数字  
 将数字增减命令绑定到加减两个按钮上，按下按钮时发送对应命令操作数字  
 
 需要重写 _get_architecture() 方法指定 Architecture  
-由于 CounterApp 架构类被设置为了 AutoLoad 单例，因此可以直接通过类名拿到
+由于 CounterApp 架构类被设置为了 AutoLoad 单例，因此可以直接通过设置的名称拿到
 ```python
 extends BaseController
 
