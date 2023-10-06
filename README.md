@@ -5,6 +5,8 @@
 
 大体来说算是简化版的 QF，使用方式基本与QF一致。
 
+[示例](Docs/Sample.md)  
+
 框架沿用了 QF 的一些设计，如：
 - [Architecture](Docs/Architecture.md)
 - [Controller](Docs/Controller.md)
