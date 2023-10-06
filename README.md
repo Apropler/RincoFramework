@@ -1,6 +1,7 @@
 # RincoFramework
 
-这是一套使用 GDScript 语言模仿 [QFramework](https://github.com/liangxiegame/QFramework) 编写的游戏开发框架
+这是一套使用 GDScript 语言模仿 [QFramework](https://github.com/liangxiegame/QFramework) 编写的游戏开发框架  
+编写环境为Godot 4.1.1  
 
 大体来说算是简化版的 QF，使用方式基本与QF一致。
 
