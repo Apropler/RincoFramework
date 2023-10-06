@@ -11,11 +11,13 @@ func _init():
 	register_component("SampleUtility", SampleUtility.new())
 ```
 
-Architecture 类负责进行模块管理  
-建议将 Architecture 类设置为AutoLoad
+Architecture 类负责进行模块管理，一般被设置为单例  
+建议使用 Godot 的 AutoLoad 功能自动加载单例  
+
+![Alt text](image/AutoLoad.png)  
 
 可以在 _init() 函数中注册信号总线和组件  
-被注册的脚本可以在其他位置被获取
+被注册的脚本可以在其他脚本中被获取
 
 #### 注册信号总线 [Signal](Signal.md)
 bus_name: 自定义总线名  
