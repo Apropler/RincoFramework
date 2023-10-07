@@ -1,5 +1,5 @@
-extends BaseComponent
-class_name BaseSystem
+extends RincoComponent
+class_name RincoSystem
 
 var get_component_handle:
 	get: return GetComponentHandle.new(_get_architecture())

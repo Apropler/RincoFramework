@@ -1,4 +1,4 @@
-extends BaseController
+extends RincoController
 
 @export var add_button: Button
 @export var sub_button: Button

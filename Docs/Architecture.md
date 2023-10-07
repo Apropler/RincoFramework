@@ -1,10 +1,10 @@
 # Architecture
 ### 示例
-```python
-extends BaseArchitecture
+```GDScript
+extends RincoArchitecture
 
 func _init():
-	_register_signal_bus("Main", SampleSignalBus)
+	register_signal_bus("Main", SampleSignalBus)
 	
 	register_utility("SampleUtility", SampleUtility.new())
 	
@@ -17,16 +17,16 @@ Architecture 类负责进行模块管理，一般被设置为单例
 建议使用 Godot 的 AutoLoad 功能自动加载单例  
 
 ![Alt text](image/AutoLoad.png)  
-
+  
+  
 可以在 _init() 函数中注册信号总线、组件和工具  
 被注册的脚本可以在其他脚本中被获取  
-
 
 #### 注册信号总线 [Signal](Signal.md)
 bus_name: 自定义总线名  
 bus_class: 总线类名
 
-```python
+```GDScript
 func register_signal_bus(bus_name, bus_class)
 ```
 
@@ -36,7 +36,7 @@ func register_signal_bus(bus_name, bus_class)
 key: 组件标识  
 component: 组件实例 
 
-```python
+```GDScript
 func register_component(key, component)
 ```
 
@@ -48,7 +48,7 @@ func register_component(key, component)
 key: 工具标识  
 component: 工具实例 
 
-```python
+```GDScript
 func register_utility(key, component)
 ```
  

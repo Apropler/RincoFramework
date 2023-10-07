@@ -1,7 +1,7 @@
 extends Node
-class_name BaseSignalBus
+class_name RincoSignalBus
 
-var signal_classes = []	# 保存定义好的信号类BaseSignal
+var signal_classes = []	# 保存定义好的信号类RincoSignal
 var signals = {}
 
 # 实例化信号类

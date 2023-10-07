@@ -9,7 +9,7 @@ get_component_handle.execute(key)
 command: 命令实例  
 param：传入参数
 ```
-send_command_handle.execute(command: BaseCommand, param={})
+send_command_handle.execute(command: RincoCommand, param={})
 ```
 
 ## 连接信号

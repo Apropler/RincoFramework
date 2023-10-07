@@ -1,14 +1,14 @@
 # Signal
-RincoFramework 提供了 BaseSignalBus 脚本和 BaseSignal 脚本对信号进行管理
+RincoFramework 提供了 RincoSignalBus 脚本和 RincoSignal 脚本对信号进行管理
 
-**信号** 需要继承 BaseSignal 类，将单个信号封装成脚本，目的是为了给信号添加一些属性，作为固定参数进行传递
+**信号** 需要继承 RincoSignal 类，将单个信号封装成脚本，目的是为了给信号添加一些属性，作为固定参数进行传递
 
-**信号总线** 需要继承 BaseSignalBus 类，信号的挂载节点，在Architecture中可以注册多个信号总线，每个总线又分别可以挂载多个信号
+**信号总线** 需要继承 RincoSignalBus 类，信号的挂载节点，在Architecture中可以注册多个信号总线，每个总线又分别可以挂载多个信号
 
 #### 信号创建
 信号类需要在 _init() 方法中为数组 must_have_param 赋值，表示该信号必须传递的参数
 ```
-extends BaseSignal
+extends RincoSignal
 class_name SampleSignal
 
 func _init():
@@ -17,7 +17,7 @@ func _init():
 
 信号总线类需要在 _init() 方法中为数组 signal_classes 赋值，表示该总线包含的信号，数组元素为对应信号类名
 ```
-extends BaseSignalBus
+extends RincoSignalBus
 class_name SampleSignalBus
 
 func _init():
@@ -28,7 +28,7 @@ func _init():
 信号总线被注册后会被添加为 Architecture 实例的子节点  
 而后信号总线进行初始化，实例化挂载的信号类，供其他脚本进行连接与发送
 ```
-extends BaseArchitecture
+extends RincoArchitecture
 
 func _init():
 	_register_signal_bus("Main", SampleSignalBus) # 传入自定义总线名和类名
@@ -41,11 +41,11 @@ bus_name: 总线名
 signal_class: 信号类名  
 data: 传递的参数  字典
 
-```python
+```GDScript
 emit_signal_handle.execute(bus_name, signal_class, data: Dictionary)
 ```
-```python
-extends BaseModel
+```GDScript
+extends RincoModel
 class_name SampleModel
 
 var score = 0: 
@@ -65,11 +65,11 @@ var score = 0:
 bus_name: 总线名  
 signal_class: 信号类名  
 function: 绑定的函数名
-```python
+```GDScript
 connect_signal_handle.execute(bus_name, signal_class, function: Callable)
 ```
-```python
-extends BaseController
+```GDScript
+extends RincoController
 
 func _ready():
 	connect_signal_handle.execute("Main", SampleSignal, test)

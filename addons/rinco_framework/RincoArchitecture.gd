@@ -1,5 +1,5 @@
 extends Node
-class_name BaseArchitecture
+class_name RincoArchitecture
 
 var _signal_bus_dict = {}
 
@@ -27,7 +27,7 @@ func _notification(what):
 			
 
 ## 命令操作
-func send_command(command: BaseCommand, param={}):
+func send_command(command: RincoCommand, param={}):
 	command.set_architecture(self)
 	command.execute(param)
 

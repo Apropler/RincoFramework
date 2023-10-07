@@ -1,7 +1,7 @@
 extends Node
-class_name BaseController
+class_name RincoController
 
-var _architecture: BaseArchitecture
+var _architecture: RincoArchitecture
 
 var get_component_handle:
 	get: return GetComponentHandle.new(_get_architecture())

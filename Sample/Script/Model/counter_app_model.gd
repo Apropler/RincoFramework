@@ -1,4 +1,4 @@
-extends BaseModel
+extends RincoModel
 class_name CounterAppModel
 
 var storage

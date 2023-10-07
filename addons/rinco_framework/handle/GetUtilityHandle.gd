@@ -1,4 +1,4 @@
-extends BaseHandle
+extends RincoHandle
 class_name GetUtilityHandle
 
 func execute(key):

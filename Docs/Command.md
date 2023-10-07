@@ -7,16 +7,16 @@
 command: 命令实例  
 param: 参数 字典类型
 ```
-send_command(command: BaseCommand, param={})
+send_command(command: RincoCommand, param={})
 ```
 #### 执行命令
-命令类继承 BaseCommand  
+命令类继承 RincoCommand  
 需要实现函数 execute  
 命令被调用时 execute 函数被执行  
 
 #### 功能
 Command 类中可以获取组件 [Component](Component.md)、发送信号 [Signal](Signal.md)、以及发送其他命令  
-见  [Handle](Handle.md)
+调用方式见 [Handle](Handle.md)
 
 
 <br><br><br>
@@ -29,8 +29,8 @@ Command 类中可以获取组件 [Component](Component.md)、发送信号 [Signa
 该命令接收一个信号类名，并发送该信号，携带数据 {"hello": "rinco"}  
 信号相关见 [Signal](Signal.md)
 
-```python
-extends BaseCommand
+```GDScript
+extends RincoCommand
 class_name SampleCommand
 
 func execute(data):
@@ -40,7 +40,7 @@ func execute(data):
 
 #### 调用
 
-```python
+```GDScript
 send_command(SampleCommand.new(), {"signal_class": SampleSignal})
 ```
 

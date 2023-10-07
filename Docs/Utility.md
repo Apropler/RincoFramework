@@ -1,10 +1,10 @@
 # Utility
-在RF中，任何一个脚本都可以是Utility  
+在RF中，任何一个脚本都可以是Utility，通常继承RefCounted  
 一般在其中封装一些工具方法供其他脚本进行调用  
 
 #### 示例
 存储工具
-```python
+```GDScript
 class_name Storage
 
 var config = ConfigFile.new()
@@ -24,8 +24,8 @@ func load_data(key: String, default_value=0):
 
 ```
 将该工具注册到架构中
-```python
-extends BaseArchitecture
+```GDScript
+extends RincoArchitecture
 
 func _init():
     ···
@@ -33,7 +33,7 @@ func _init():
 	···
 ```
 调用工具
-```python
+```GDScript
 var storage = get_utility_handle.execute("Storage")
 var count = storage.load_data("count", 0)
 count += 1
@@ -43,8 +43,8 @@ storage.save_data("count", count)
 #### 目的
 便于维护  
 假如此时需要使用另一种存储方式，则可以编写一个新的存储工具类 StorageJson，在其中实现 save_data 方法和 load_data 方法，注册时直接进行替换，实现一个伪接口的效果
-```python
-extends BaseArchitecture
+```GDScript
+extends RincoArchitecture
 
 func _init():
     ···

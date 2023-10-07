@@ -1,4 +1,4 @@
-extends BaseArchitecture
+extends RincoArchitecture
 
 func _init():
 	register_signal_bus("Main", MainSignalBus)

@@ -1,4 +1,4 @@
-extends BaseHandle
+extends RincoHandle
 class_name GetComponentHandle
 
 func execute(key):

@@ -1,4 +1,4 @@
-extends BaseSystem
+extends RincoSystem
 class_name AchievementSystem
 
 enum Achievement{

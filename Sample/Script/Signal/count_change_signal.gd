@@ -1,4 +1,4 @@
-extends BaseSignal
+extends RincoSignal
 class_name CountChangeSignal
 
 # func _init():

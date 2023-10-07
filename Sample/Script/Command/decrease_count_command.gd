@@ -1,4 +1,4 @@
-extends BaseCommand
+extends RincoCommand
 class_name DecreaseCountCommand
 
 func execute(data):

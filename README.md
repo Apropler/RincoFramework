@@ -20,4 +20,9 @@
 
 <br>
 
-[下载](https://github.com/Apropler/RincoFramework/releases/tag/rinco)解压后放在 res 路径下即可使用（疑似 Godot 的 bug ，可能需要重启才能生效）
+简易示意图  
+![Alt text](Docs/image/RincoFramework.png)
+
+<br>
+
+[下载](https://github.com/Apropler/RincoFramework/releases/tag/rinco)解压后放在 res 路径下即可使用（可能需要重启才能生效，疑似 Godot 的 Bug）

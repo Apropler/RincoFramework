@@ -1,9 +1,9 @@
 # Controller
 操控游戏逻辑  
-继承 BaseController 类
+继承 RincoController 类  
+控制器作为节点 Node 被使用
 #### 初始化
-在使用框架功能前需要先重写函数指定 architecture  
-返回 BaseArchitecture 子类实例 [Architecture](Architecture.md)  
+在使用框架功能前需要先重写函数 _get_architecture() 指定 [Architecture](Architecture.md)  
 ```
 func _get_architecture():
 	return null
@@ -17,4 +17,4 @@ func _get_architecture():
 ```
 #### 功能
 Controller 类中可以连接信号、发送命令、获取组件  
-见 [Handle](Handle.md)
+调用方式见 [Handle](Handle.md)

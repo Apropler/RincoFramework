@@ -1,4 +1,4 @@
-extends BaseHandle
+extends RincoHandle
 class_name EmitSignalHandle
 
 func execute(bus_name, signal_class, data: Dictionary = {}):

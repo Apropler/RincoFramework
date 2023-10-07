@@ -1,4 +1,4 @@
-class_name BaseCommand
+class_name RincoCommand
 
 var _architecture
 

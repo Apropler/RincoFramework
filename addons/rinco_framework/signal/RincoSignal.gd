@@ -1,4 +1,4 @@
-class_name BaseSignal
+class_name RincoSignal
 
 signal triggered
 

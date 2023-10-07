@@ -1,6 +1,6 @@
-class_name BaseComponent
+class_name RincoComponent
 
-var _architecture: BaseArchitecture
+var _architecture: RincoArchitecture
 
 func _init_component():
 	pass
