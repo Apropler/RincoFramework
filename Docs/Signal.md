@@ -80,3 +80,4 @@ func test(data):
 	print(data)
 
 ```
+此时print信息为: {"hello_rinco": score}
