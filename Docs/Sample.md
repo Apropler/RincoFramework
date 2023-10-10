@@ -60,8 +60,7 @@ func load_data(key: String, default_value=0):
 定义信号类，继承 RincoSignal 类  
 当数字发生变化时，发送该信号
 ```GDScript
-extends RincoSignal
-class_name CountChangeSignal
+class_name CountChangeSignal extends RincoSignal
 
 # func _init():
 # 	must_have_param = []
@@ -79,8 +78,7 @@ must_have_param = ["param1","param2"]
 在 _init() 方法中为 signal_classes 列表赋值，包含总线挂载的信号类 
 此处挂载了上面定义的 CountChangeSignal 信号类
 ```GDScript
-extends RincoSignalBus
-class_name MainSignalBus
+class_name MainSignalBus extends RincoSignalBus
 
 func _init():
 	signal_classes = [CountChangeSignal]
@@ -94,8 +92,7 @@ func _init():
 其中调用了注册好的存储工具类，执行加载方法，获取上次记录的数字  
 在数字发送变化时执行保存方法，将新数字进行保存，并发送数字改变信号
 ```GDScript
-extends RincoModel
-class_name CounterAppModel
+class_name CounterAppModel extends RincoModel
 
 var storage
 
@@ -123,8 +120,7 @@ func _init_component():
 随后通过存储工具 Storage 获取玩家当前的成就达成情况，如果当前成就处于未完成状态则解锁成就并保存，否则略过
 
 ```GDScript
-extends RincoSystem
-class_name AchievementSystem
+class_name AchievementSystem extends RincoSystem
 
 enum Achievement{
 	ROOKIE,
@@ -179,8 +175,7 @@ func save_achievement(achievement) -> bool:
 获取到模型 CounterAppModel 并将数字加一   
 数字减少命令与其类似
 ```GDScript
-extends RincoCommand
-class_name IncreaseCountCommand
+class_name IncreaseCountCommand extends RincoCommand
 
 func execute(data):
     get_component_handle.execute("CounterAppModel").count += 1
