@@ -22,7 +22,7 @@ Architecture 类负责进行模块管理，一般被设置为单例
 可以在 _init() 函数中注册信号总线、组件和工具  
 被注册的脚本可以在其他脚本中被获取  
 
-#### 注册信号总线 [Signal](Signal.md)
+#### 注册信号总线 [SignalBus](Signal.md)
 bus_name: 自定义总线名  
 bus_class: 总线类名
 
