@@ -31,11 +31,9 @@ var get_utility_handle:
 ```
 例如，创建一个可以发送命令的 Model（非必要情况不建议这样做）  
 ```GDScript
-extends RincoModel
-class_name SendCommandModel
+class_name SendCommandModel extends RincoModel
 
 var send_command_handle:
 	get: return SendCommandHandle.new(_get_architecture())
 ```
 这样就可以像其他组件一样调用 send_command_handle 来发送命令了  
-~~Godot能不能来个接口啊~~
