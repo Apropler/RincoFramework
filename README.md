@@ -15,13 +15,18 @@
 - [System](Docs/Component.md)
 - [Utility](Docs/Component.md)
 
-另外，该框架使用了 Godot 引擎的信号机制代替了 QF 的 Event
+另外，该框架使用了 Godot 引擎的信号机制代替实现了 QF 的 Event
 - [Signal](Docs/Signal.md)  
 
 <br>
 
-简易示意图  
-![Alt text](Docs/image/RincoFramework.png)
+**简易示意图**  
+
+![简易示意图](Docs/image/RincoFramework.png)
+
+**逻辑组织方式**  
+Controller之间通过信号进行通信，互相组成一张底层的网路，再向上调用Godot中预设的其他节点实现具体功能
+![控制器通信](Docs/image/ControllerCommunication.png)
 
 <br>
 
