@@ -1,5 +1,5 @@
-extends Node
-class_name RincoSignalBus
+class_name RincoSignalBus extends Node
+
 
 var signal_classes = []	# 保存定义好的信号类RincoSignal
 var signals = {}

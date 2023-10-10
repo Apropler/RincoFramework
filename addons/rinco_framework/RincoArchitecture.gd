@@ -1,5 +1,5 @@
-extends Node
-class_name RincoArchitecture
+class_name RincoArchitecture extends Node
+
 
 var _signal_bus_dict = {}
 

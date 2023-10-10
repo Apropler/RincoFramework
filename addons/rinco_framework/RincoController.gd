@@ -1,5 +1,5 @@
-extends Node
-class_name RincoController
+class_name RincoController extends Node
+
 
 var _architecture: RincoArchitecture
 
