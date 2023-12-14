@@ -3,8 +3,8 @@ class_name RincoArchitecture extends Node
 
 var _signal_bus_dict = {}
 
-var _components = IOCContainer.new()
-var _utilitys = IOCContainer.new()
+var _components := IOCContainer.new()
+var _utilitys := IOCContainer.new()
 		
 		
 ## 组件操作
@@ -34,7 +34,7 @@ func send_command(command: RincoCommand, param={}):
 
 ## 信号操作
 # 注册总线
-func register_signal_bus(bus_name, bus_class):
+func register_signal_bus(bus_name: String, bus_class):
 	var new_bus = bus_class.new()
 	new_bus.init_bus()
 	add_child(new_bus)
